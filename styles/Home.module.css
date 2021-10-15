@@ -76,6 +76,10 @@
   flex-wrap: wrap;
   max-width: 800px;
   margin-top: 3rem;
+  
+}
+.canvas {
+  border: 1px solid black;
 }
 
 .card {
