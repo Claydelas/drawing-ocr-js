@@ -9,17 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-canvas-draw": "^1.1.1",
     "react-dom": "^17.0.2",
+    "react-hot-keys": "^2.7.1",
     "tesseract.js": "^2.1.5"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "17.0.30",
     "@types/react-canvas-draw": "^1.1.1",
+    "autoprefixer": "^10.3.7",
     "eslint": "8.0.1",
     "eslint-config-next": "11.1.2",
+    "postcss": "^8.3.9",
+    "tailwindcss": "^2.2.17",
     "typescript": "4.4.4"
   }
 }
