@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.4",
     "lodash.debounce": "^4.0.8",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-canvas-draw": "^1.1.1",
     "react-dom": "^17.0.2",
-    "react-hot-keys": "^2.7.1",
+    "react-hotkeys": "^2.0.0",
     "tesseract.js": "^2.1.5"
   },
   "devDependencies": {
