@@ -67,20 +67,18 @@ const Home: NextPage = () => {
   }
 
   return (
-    <GlobalHotKeys handlers={keyHandlers} keyMap={keyMap}>
+    <GlobalHotKeys allowChanges={true} handlers={keyHandlers} keyMap={keyMap}>
       <div className="dark">
         <Head>
           <title>OCR</title>
           <meta name="description" content="Handwritten text recognition." />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
         <main className="flex flex-col justify-center items-center min-h-screen gap-5 dark:bg-gray-800 dark:text-white">
           <h1 className="font-sans text-center text-5xl">
             {preview || "Draw something to see a preview :)"}
           </h1>
           <div className="flex gap-x-5">
-
             <div className="border-2 border-black">
               <CanvasDraw
                 ref={canvasRef}
@@ -98,13 +96,11 @@ const Home: NextPage = () => {
               orientation="vertical"
               className="h-auto"
               min={0}
-              max={10}
+              max={15}
               value={brushSize}
-              onChange={(event, v) => {
-                event.stopPropagation()
+              onChange={(_, v) => {
                 setBrushSize(v as number);
-              }}
-            />
+              }} />
           </div>
           <h1 className="font-sans text-center text-xl">
             {out || ""}
