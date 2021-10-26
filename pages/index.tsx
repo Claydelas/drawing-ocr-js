@@ -3,8 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import CanvasDraw from "react-canvas-draw";
-import Slider from '@mui/material/Slider';
-
+import StyledSlider from '../components/StyledSlider';
 import Tesseract from 'tesseract.js';
 
 import { GlobalHotKeys, configure, KeyMap } from "react-hotkeys";
@@ -96,16 +95,7 @@ const Home: NextPage = () => {
                   hideGrid={true}
                   onChange={debouncedPredict} />
               </div>
-              <Slider
-                marks={true}
-                valueLabelDisplay='auto'
-                orientation="vertical"
-                min={0}
-                max={15}
-                value={brushSize}
-                onChange={(_, v) => {
-                  setBrushSize(v as number);
-                }} />
+              <StyledSlider brushSize={brushSize} setBrushSize={setBrushSize}></StyledSlider>
             </div>
             <h1 className="font-sans text-xl text-center">
               {out || ""}
