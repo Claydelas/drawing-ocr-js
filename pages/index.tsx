@@ -68,43 +68,49 @@ const Home: NextPage = () => {
 
   return (
     <GlobalHotKeys allowChanges={true} handlers={keyHandlers} keyMap={keyMap}>
-      <div className="dark">
+      <div>
         <Head>
           <title>OCR</title>
           <meta name="description" content="Handwritten text recognition." />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex flex-col justify-center items-center min-h-screen gap-5 dark:bg-gray-800 dark:text-white">
-          <h1 className="font-sans text-center text-5xl">
-            {preview || "Draw something to see a preview :)"}
-          </h1>
-          <div className="flex gap-x-5">
-            <div className="border-2 border-black">
-              <CanvasDraw
-                ref={canvasRef}
-                brushRadius={brushSize}
-                brushColor={erasing ? "#FFFFFF" : "#444"}
-                canvasWidth={1000}
-                canvasHeight={400}
-                lazyRadius={0}
-                hideGrid={true}
-                onChange={debouncedPredict} />
+        <main className="flex flex-col items-center min-h-screen justify-evenly bg-gradient-to-br from-red-300 to-indigo-400">
+          <p>
+            Save the current prediction with <strong>ENTER</strong>. <br />
+            Hold <strong>E</strong> while drawing to erase. <br />
+            Undo with <strong>CTRL+Z</strong>.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-5">
+            <h1 className="font-sans text-5xl text-center">
+              {preview || "Draw something to see a preview :)"}
+            </h1>
+            <div className="flex gap-x-5">
+              <div className="border-2 border-black">
+                <CanvasDraw
+                  ref={canvasRef}
+                  brushRadius={brushSize}
+                  brushColor={erasing ? "#FFFFFF" : "#444"}
+                  canvasWidth={1000}
+                  canvasHeight={400}
+                  lazyRadius={0}
+                  hideGrid={true}
+                  onChange={debouncedPredict} />
+              </div>
+              <Slider
+                marks={true}
+                valueLabelDisplay='auto'
+                orientation="vertical"
+                min={0}
+                max={15}
+                value={brushSize}
+                onChange={(_, v) => {
+                  setBrushSize(v as number);
+                }} />
             </div>
-            <Slider
-              marks={true}
-              valueLabelDisplay='auto'
-              orientation="vertical"
-              className="h-auto"
-              min={0}
-              max={15}
-              value={brushSize}
-              onChange={(_, v) => {
-                setBrushSize(v as number);
-              }} />
+            <h1 className="font-sans text-xl text-center">
+              {out || ""}
+            </h1>
           </div>
-          <h1 className="font-sans text-center text-xl">
-            {out || ""}
-          </h1>
         </main>
       </div>
     </GlobalHotKeys>

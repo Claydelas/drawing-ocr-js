@@ -9,7 +9,7 @@ import Tesseract from 'tesseract.js';
 // TODO: implement ability to pass OCR target language as parameter
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Tesseract.Page | {}>
+  res: NextApiResponse
 ) {
   switch (req.method) {
     case 'POST':
